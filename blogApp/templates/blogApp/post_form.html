@@ -1,0 +1,12 @@
+{% extends 'blogApp\base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<h1>post Creation</h1>
+<a href="{% url 'post-list' %}">Go Back</a>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form | crispy}}
+    <input type="submit" value="Create Post">
+</form>
+{% endblock %}

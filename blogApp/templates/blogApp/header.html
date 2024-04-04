@@ -1,0 +1,30 @@
+{% block content %}
+<body>
+    
+    <div class="header">
+        <div class="sec1">
+            <h1> Django Blog Application</h1>
+            
+    </div>
+    <div class="sec2">
+        <form action="" method="get">
+            <input type="text" name="search-area" id="" placeholder="Search Post">
+            <input type="submit" value="Search" >
+        </form>
+    </div>
+    <div class="sec3">
+        <ul class="lists">
+            <li><a href="{% url 'post-list' %}">Home</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="">{{request.user}}</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="">Gust</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+</body>
+{% endblock %}
